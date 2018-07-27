@@ -5,10 +5,12 @@ import (
 	"crypto/sha1"
 	"database/sql"
 	"fmt"
-	_ "github.com/lib/pq"
 	"log"
+
+	_ "github.com/lib/pq"
 )
 
+//Db db connection
 var Db *sql.DB
 
 func init() {
@@ -17,6 +19,12 @@ func init() {
 	if err != nil {
 		log.Fatal(err)
 	}
+
+	err = Db.Ping()
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Println("Successfully connected!")
 	return
 }
 
