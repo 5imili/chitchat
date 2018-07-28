@@ -31,11 +31,21 @@ sudo -u postgres passwd
 
 修改pg的配置文件：
 ```text
+# for centos file@/etc/postgresql/postgres.conf
 # "local" is for Unix domain socket connections only
 local   all             all                                     trust
 # IPv4 local connections:
 host    all             all             127.0.0.1/32           trust
 ```
+
+```text
+#for ubuntu  file@/etc/postgresql/9.6/main/pg_hba.conf
+# "local" is for Unix domain socket connections only
+local   all             all                                     trust
+# IPv4 local connections:
+host    all             all             127.0.0.1/32           trust
+```
+
 重启pg服务
 
 创建测试数据库和用户
@@ -48,4 +58,4 @@ postgres=# \q
 初始化数据表
 ```
 
-启动chitchat程序测试
+启动 chitchat 程序测试
